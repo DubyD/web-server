@@ -1,6 +1,7 @@
 import express from "express";
 
 const app = express();
+app.set("view engine", "ejs");
 const PORT = 3000;
 
 app.get("/", (req, res) => {
@@ -8,9 +9,10 @@ app.get("/", (req, res) => {
 });
 
 app.get("/about", (req, res) => {
-  res.send(
-    `Currently I am learning how to create a space that can \nbe accessed from a URL. This small function will help with creating more \ncomplex organizations for a fully functional web application.`,
-  );
+  res.render("about", {
+    title: "About",
+    body: `Currently I am learning how to create a space that can \nbe accessed from a URL. This small function will help with creating more \ncomplex organizations for a fully functional web application.`,
+  });
 });
 //needed a commit
 
